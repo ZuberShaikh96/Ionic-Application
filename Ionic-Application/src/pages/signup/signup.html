@@ -1,0 +1,168 @@
+<!--<html>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<meta name="HandheldFriendly" content="true">
+-->
+
+<ion-header>
+    <ion-navbar>
+      <ion-title> 
+      SignUp
+      </ion-title>
+    </ion-navbar>
+</ion-header>
+  
+  
+  <ion-content class="no-scroll" >
+    <div class="back">
+    
+  <form novalidate  (ngSubmit)="SignupUser()"  [formGroup]="user" >
+  <div class="regs">
+  
+  <ion-item>
+  <ion-label ><ion-icon name="person" color="dark"></ion-icon></ion-label>
+  <ion-input type="text" value="" placeholder="FirstName" formControlName="fname"></ion-input>
+  
+  </ion-item>
+  
+  <ion-item no-lines *ngIf="( user.get('fname').hasError('minlength') || user.get('fname').hasError('required') ) && user.get('fname').touched">
+  
+  <div class="error" *ngIf="user.get('fname').hasError('required') && user.get('fname').touched">
+  *FirstName is required
+  </div>
+  <div class="error" *ngIf="user.get('fname').hasError('minlength') && user.get('fname').touched">
+  Minimum of 4 characters
+  </div>
+  </ion-item>
+  
+  
+  
+  <ion-item>
+  <ion-label ><ion-icon name="person" color="dark"></ion-icon></ion-label>
+  <ion-input type="text" value="" placeholder="LastName" formControlName="lname"></ion-input>
+  
+  </ion-item>
+  
+  <ion-item no-lines *ngIf="( user.get('lname').hasError('minlength') || user.get('lname').hasError('required') ) && user.get('fname').touched">
+  
+  <div class="error" *ngIf="user.get('lname').hasError('required') && user.get('lname').touched">
+  LastName is required
+  </div>
+  <div class="error" *ngIf="user.get('lname').hasError('minlength') && user.get('lname').touched">
+  Minimum of  characters
+  </div>
+  </ion-item>
+  
+  
+  
+  
+  <ion-item>
+  <ion-label ><ion-icon name="mail" color="dark"></ion-icon></ion-label>
+  <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+  
+  
+  </ion-item>
+  
+  <ion-item no-lines *ngIf="( user.get('email').hasError('required') || user.get('email').hasError('email') ) && user.get('email').touched">
+  
+  <div class="error" *ngIf="user.get('email').hasError('required') && user.get('email').touched">
+  email is required
+  </div>
+  
+  <div class="error" *ngIf="user.get('email').hasError('email') && user.get('email').touched">
+  Please enter valid email
+  </div>
+  
+  </ion-item>
+  
+  
+  
+  <ion-item>
+  <ion-label ><ion-icon name="call" color="dark"></ion-icon></ion-label>
+  <ion-input type="text" value="" placeholder="Phone" formControlName="mob"></ion-input>
+  
+  
+  </ion-item>
+  
+  <ion-item no-lines *ngIf="( user.get('mob').hasError('required') || user.get('mob').hasError('minlength') || user.get('mob').hasError('maxlength'))&& user.get('mob').touched">
+  
+  <div class="error" *ngIf="user.get('mob').hasError('required') && user.get('email').touched">
+  mobile no is required
+  </div>
+  <div class="error" *ngIf="user.get('mob').hasError('minlength') && user.get('email').touched">
+  Please enter valid mobile number
+  </div>
+  
+  <div class="error" *ngIf="user.get('mob').hasError('maxlength') && user.get('email').touched">
+  Please enter valid mobile number
+  </div>
+  
+  
+  </ion-item>
+  
+  <ion-item>
+  <ion-label ><ion-icon name="key" color="dark"></ion-icon></ion-label>
+  <ion-input type="password" value="" placeholder="Password" formControlName="pswd"></ion-input>
+  
+  </ion-item>
+  
+  <ion-item no-lines *ngIf="( user.get('pswd').hasError('minlength') || user.get('pswd').hasError('required') ) && user.get('fname').touched">
+  
+  <div class="error" *ngIf="user.get('pswd').hasError('required') && user.get('pswd').touched">
+  Password is required
+  </div>
+  <div class="error" *ngIf="user.get('fname').hasError('maxlength') && user.get('pswd').touched">
+  maximum 15 charecters
+  </div>
+  </ion-item>
+  
+  
+  <ion-item>
+  <ion-label ><ion-icon name="key" color="dark"></ion-icon></ion-label>
+  <ion-input type="password" value="" placeholder="ConfirmPassword" formControlName="cpswd"></ion-input>
+  
+  </ion-item>
+  </div>
+  
+  
+  
+  <ion-grid>
+          <ion-row>
+                
+                        <button ion-button type="submit"   round outline>Submit</button>
+                </ion-row><br>
+                <ion-row>
+                        <button ion-button type="reset" color="danger" round outline>Reset</button>
+                
+          </ion-row>
+    </ion-grid>
+  
+  </form>
+    </div>
+  
+  </ion-content>
+  
+  
+  
+  
+  <style type="text/css">
+  .error
+  {
+  color:red;
+  }
+  
+  
+  
+  /*.regs
+  {
+    margin-top: 20px;
+    
+  }*/
+  
+  
+  </style>
+  
+  
+  

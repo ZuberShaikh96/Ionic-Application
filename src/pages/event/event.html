@@ -1,0 +1,252 @@
+
+<ion-header>
+    <ion-navbar>
+      <ion-title> 
+      Event Registration
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content class="no-scroll" >
+    
+    
+  <form novalidate  [formGroup]="user">
+  
+  
+  <ion-item>
+  <ion-label ><ion-icon name="person" color="dark"></ion-icon></ion-label>
+  
+  
+  
+  <ion-input type="text" value="" placeholder="FullName" formControlName="name"></ion-input>
+  
+  </ion-item>
+  
+  <ion-item no-lines *ngIf="( user.get('name').hasError('minlength') || user.get('name').hasError('required') ) && user.get('name').touched">
+  
+  <div class="error" *ngIf="user.get('name').hasError('required') && user.get('name').touched">
+  *Name is required
+  </div>
+  <div class="error" *ngIf="user.get('name').hasError('minlength') && user.get('name').touched">
+  
+  </div>
+  </ion-item>
+  
+  
+  
+  
+  
+  
+  <ion-item>
+  <ion-label ><ion-icon name="calendar" color="dark"></ion-icon></ion-label>
+  <ion-input type="date" value="" placeholder="Date Of Birth" formControlName="dob"></ion-input>
+  </ion-item>
+  
+  
+  <ion-item no-lines *ngIf="( user.get('dob').hasError('minlength') || user.get('dob').hasError('required') ) && user.get('name').touched">
+  
+  <div class="error" *ngIf="user.get('dob').hasError('required') && user.get('dob').touched">
+  DOB is required
+  </div>
+  <div class="error" *ngIf="user.get('dob').hasError('minlength') && user.get('dob').touched">
+  Minimum
+  </div>
+  </ion-item>
+  
+  
+  <!--
+  <ion-item no-lines *ngIf="( user.get('dob').hasError('minlength') || user.get('dob').hasError('required') ) && user.get('name').touched"></ion-item>
+  
+  <ion-item>
+  <div class="error" *ngIf="user.get('dob').hasError('required') && user.get('dob').touched">
+  Date of Birth is required.
+  </div>
+  </ion-item>
+  -->
+  
+  
+  
+  
+  
+  
+  
+  <ion-item>
+  <ion-label ><ion-icon name="call" color="dark"></ion-icon></ion-label>
+  <ion-input type="text" value="" placeholder="Phone" formControlName="mob"></ion-input>
+  
+  
+  </ion-item>
+  
+  <ion-item no-lines *ngIf="( user.get('mob').hasError('required') || user.get('mob').hasError('minlength') || user.get('mob').hasError('maxlength'))&& user.get('mob').touched">
+  
+  <div class="error" *ngIf="user.get('mob').hasError('required') && user.get('dob').touched">
+  mobile no is required
+  </div>
+  <div class="error" *ngIf="user.get('mob').hasError('minlength') && user.get('dob').touched">
+  Please enter valid mobile number
+  </div>
+  
+  </ion-item>
+  
+  
+  
+    
+  
+    <!--<ion-item>
+      <ion-label>male</ion-label>
+      <ion-radio value="male" ></ion-radio>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Female</ion-label>
+      <ion-radio value="female"></ion-radio>
+    </ion-item>-->
+    
+  
+  <ion-item>
+        
+    
+    <div  > 
+       <label>Gender: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+      
+  <input type="radio" id="rb1" formControlName="gender" value="Male" >
+  <label for="rb1">Male</label>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="radio" id="rb2" formControlName="gender" value="Female">
+  <label for="rb2">Female</label><br>
+  
+      <!--
+      <ion-radio type="radio" ng-model="radioModel.value" ng-value="Male" >Male</ion-radio>
+      <ion-radio ng-model="radioModel.value" ng-value="Female" >Female</ion-radio>-->
+      </div>
+  </ion-item>
+  
+  <ion-item>
+    
+  <ion-label ><ion-icon name="home" color="dark"></ion-icon></ion-label>
+  <ion-input type="comment"  placeholder="Address" formControlName="address">
+  </ion-input>
+  
+  
+  </ion-item>
+   
+  
+  
+  
+  <!--ion-item>
+  <ion-select formControlName="ename">       
+    <ion-option *ng-repeat="x in data" 
+                         [value]="item.result[i].name">{{item.result[i].name}}</ion-option>                  
+  </ion-select>
+  </ion-item-->
+  <!--ion-item>
+    <ion-select placeholder="Event Name" formControlName="ename">
+      <ion-option></ion-option>
+      
+      
+      <ion-option>{{ data.result[1].name }}</ion-option>
+      <ion-option>{{ data.result[2].name }}</ion-option>
+    </ion-select-->
+    
+    <ion-item> 
+    <ion-label ><ion-icon  color="dark"></ion-icon></ion-label>
+      <ion-select>
+          <!--ion-option>{{e}}</ion-option>-->
+          
+        <ion-option *ngFor="let data of e" [value]="data" (ionSelect)="select(data)">{{data}}</ion-option>
+        <!--<ion-option>{{e}}</ion-option-->
+        
+        <!--ion-option ng-repeat="event in eventsList.result">{{event}}</ion-option-->
+      </ion-select>    
+  </ion-item>
+  
+  <!--ion-item>
+    <ion-label>Events </ion-label>
+    <ion-select [(ngModel)]="data.result.name">
+     
+    </ion-select>
+  
+    <ion-select [(ngModel)]="events" (ionChange)="Selected($event)">
+      <ion-option value="b">birthday</ion-option>
+      <ion-option value="w">wedding</ion-option>
+      
+    </ion-select>
+  </ion-item
+  <ion-item>
+    {{this.events.result.name}}
+  </ion-item>-->
+  
+  <ion-item>
+      
+  
+  <div  > 
+     <label>Event Type: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    
+  <input type="radio" id="rb3" formControlName="etype" value="Free" >
+  <label for="rb3">Free</label>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="radio" id="rb4" formControlName="etype" value="Paid">
+  <label for="rb4">Paid</label><br>
+  
+    
+    </div>
+  </ion-item>
+  
+  <ion-item>
+  
+  <ion-label ><ion-icon  color="dark"></ion-icon></ion-label>
+  <ion-input type="integer"  placeholder="fees" formControlName="fees">
+  </ion-input>
+  
+  </ion-item>
+  
+  <ion-item>
+    <ion-label ><ion-icon  color="dark"></ion-icon></ion-label>
+    <ion-input type="integer"  placeholder="advance" formControlName="advance">
+    </ion-input>
+  </ion-item>
+  
+  
+  
+  <ion-grid>
+      <ion-row>
+            
+                    <button ion-button type="submit" (click)="onClick()"  round outline>Submit</button>
+            </ion-row><br>
+            <ion-row>
+                    <button ion-button type="reset" color="danger" round outline>Reset</button>
+            
+      </ion-row>
+  </ion-grid>
+  
+  
+  
+   
+  
+  
+  
+  
+  </form>
+  
+  </ion-content>
+  
+  
+  <style type="text/css">
+  .error
+  {
+  color:red;
+  }
+  
+  /*.item.item-input{
+    background-color: transparent;
+  }
+  .radio{
+     margin-left:10px;
+  }*/
+  
+  
+  </style>
+  
+  
+  
