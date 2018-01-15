@@ -7,11 +7,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { Provider } from '../providers/provider/provider';
+
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+
 import { SignupPage } from '../pages/signup/signup';
 import { OptionPage } from '../pages/option/option';
 import { ContactPage } from '../pages/contact/contact';
-import {EventPage} from '../pages/event/event';
+import { EventPage } from '../pages/event/event';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import {EventPage} from '../pages/event/event';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

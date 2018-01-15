@@ -33,11 +33,6 @@
   </div>
   </ion-item>
   
-  
-  
-  
-  
-  
   <ion-item>
   <ion-label ><ion-icon name="calendar" color="dark"></ion-icon></ion-label>
   <ion-input type="date" value="" placeholder="Date Of Birth" formControlName="dob"></ion-input>
@@ -53,23 +48,7 @@
   Minimum
   </div>
   </ion-item>
-  
-  
-  <!--
-  <ion-item no-lines *ngIf="( user.get('dob').hasError('minlength') || user.get('dob').hasError('required') ) && user.get('name').touched"></ion-item>
-  
-  <ion-item>
-  <div class="error" *ngIf="user.get('dob').hasError('required') && user.get('dob').touched">
-  Date of Birth is required.
-  </div>
-  </ion-item>
-  -->
-  
-  
-  
-  
-  
-  
+
   
   <ion-item>
   <ion-label ><ion-icon name="call" color="dark"></ion-icon></ion-label>
@@ -89,21 +68,7 @@
   
   </ion-item>
   
-  
-  
-    
-  
-    <!--<ion-item>
-      <ion-label>male</ion-label>
-      <ion-radio value="male" ></ion-radio>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label>Female</ion-label>
-      <ion-radio value="female"></ion-radio>
-    </ion-item>-->
-    
-  
+ 
   <ion-item>
         
     
@@ -115,10 +80,7 @@
   &nbsp;&nbsp;&nbsp;&nbsp;
   <input type="radio" id="rb2" formControlName="gender" value="Female">
   <label for="rb2">Female</label><br>
-  
-      <!--
-      <ion-radio type="radio" ng-model="radioModel.value" ng-value="Male" >Male</ion-radio>
-      <ion-radio ng-model="radioModel.value" ng-value="Female" >Female</ion-radio>-->
+
       </div>
   </ion-item>
   
@@ -131,56 +93,19 @@
   
   </ion-item>
    
-  
-  
-  
-  <!--ion-item>
-  <ion-select formControlName="ename">       
-    <ion-option *ng-repeat="x in data" 
-                         [value]="item.result[i].name">{{item.result[i].name}}</ion-option>                  
-  </ion-select>
-  </ion-item-->
-  <!--ion-item>
-    <ion-select placeholder="Event Name" formControlName="ename">
-      <ion-option></ion-option>
-      
-      
-      <ion-option>{{ data.result[1].name }}</ion-option>
-      <ion-option>{{ data.result[2].name }}</ion-option>
-    </ion-select-->
-    
+
     <ion-item> 
-    <ion-label ><ion-icon  color="dark"></ion-icon></ion-label>
-      <ion-select>
-          <!--ion-option>{{e}}</ion-option>-->
-          
-        <ion-option *ngFor="let data of e" [value]="data" (ionSelect)="select(data)">{{data}}</ion-option>
-        <!--<ion-option>{{e}}</ion-option-->
-        
-        <!--ion-option ng-repeat="event in eventsList.result">{{event}}</ion-option-->
-      </ion-select>    
+    <ion-label ><ion-icon  color="dark">Select{{data}}</ion-icon></ion-label>
+      <ion-select formControlName="ename">
+        <ion-option *ngFor="let data of events" value="{{data}}" (ionSelect)="data">{{data}}</ion-option>
+      </ion-select>
+    
   </ion-item>
-  
-  <!--ion-item>
-    <ion-label>Events </ion-label>
-    <ion-select [(ngModel)]="data.result.name">
-     
-    </ion-select>
-  
-    <ion-select [(ngModel)]="events" (ionChange)="Selected($event)">
-      <ion-option value="b">birthday</ion-option>
-      <ion-option value="w">wedding</ion-option>
-      
-    </ion-select>
-  </ion-item
-  <ion-item>
-    {{this.events.result.name}}
-  </ion-item>-->
-  
+ 
   <ion-item>
       
   
-  <div  > 
+  <div> 
      <label>Event Type: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
     
   <input type="radio" id="rb3" formControlName="etype" value="Free" >
@@ -195,9 +120,9 @@
   
   <ion-item>
   
-  <ion-label ><ion-icon  color="dark"></ion-icon></ion-label>
-  <ion-input type="integer"  placeholder="fees" formControlName="fees">
-  </ion-input>
+    <ion-label ><ion-icon  color="dark"></ion-icon></ion-label>
+    <ion-input type="integer"  placeholder="fees" formControlName="fees">
+    </ion-input>
   
   </ion-item>
   
@@ -206,46 +131,21 @@
     <ion-input type="integer"  placeholder="advance" formControlName="advance">
     </ion-input>
   </ion-item>
-  
-  
-  
   <ion-grid>
-      <ion-row>
-            
-                    <button ion-button type="submit" (click)="onClick()"  round outline>Submit</button>
+      <ion-row>      
+            <button ion-button type="submit" (click)="EventRegistration()"  round outline>Submit</button>
             </ion-row><br>
             <ion-row>
                     <button ion-button type="reset" color="danger" round outline>Reset</button>
-            
       </ion-row>
   </ion-grid>
-  
-  
-  
-   
-  
-  
-  
-  
   </form>
-  
   </ion-content>
-  
-  
   <style type="text/css">
   .error
   {
   color:red;
-  }
-  
-  /*.item.item-input{
-    background-color: transparent;
-  }
-  .radio{
-     margin-left:10px;
-  }*/
-  
-  
+  }  
   </style>
   
   

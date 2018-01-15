@@ -32,7 +32,7 @@ export class ContactPage implements OnInit {
 
       this.provide.ContactUser(this.user.value.name,this.user.value.email,this.user.value.mob,this.user.value.comment)
         .subscribe(
-          data=>{
+          data => {
             console.log(data.result);
             if(data.result=="Success")
             {
